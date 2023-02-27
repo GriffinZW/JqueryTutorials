@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning vue</title>
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {
+            background: #eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+
+        p,
+        h3,
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-contentspace-betweenen;
+        }
+
+        li.fav {
+            background: #ff9ed2;
+            color: white;
+        }
+
+
+
+        .box {
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <h1>Hello Vue :)</h1>
+
+    <div id="app">
+        <!-- attribute binding -->
+        <!-- <a :href="url">best website ever</a> -->
+        <div v-if="showBook">
+            <ul>
+                <li v-for="book in filteredbooks" :class="{ fav: book.isFav }" @click="toggleFav(book)">
+                    <img :src="" :alt="book.title">
+                    <h3>{{ book.title }}</h3>
+                    <p>{{ book.author }}</p>
+                </li>
+            </ul>
+        </div>
+
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+
+        <br>
+        <!-- mouse events -->
+        <div class="box" @mousover="handleEvent($event, 5)">mouseover (enter)</div>
+        <div class="box" @mouseleave="handleEvent">mouseleave</div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box" @mousemove="handleMousemove">position - {{ x }} {{ y }}</div>
+
+
+    </div>
+
+    <script src="app.js"></script>
+    <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
+
+</body>
+
+</html>
